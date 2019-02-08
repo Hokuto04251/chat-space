@@ -9,7 +9,7 @@
 
 ### Association
 -has_many :messages
--has_many :groups
+-has_many :members
 
 ## groupテーブル
 |Column|Type|Options|
@@ -17,10 +17,10 @@
 |name|string|null: false|
 
 ### Association
--has_many :users
 -has_many :messages
+-has_many :members
 
-## menberテーブル
+## memberテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
