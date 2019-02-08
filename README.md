@@ -1,6 +1,6 @@
 # README
 
-## userテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false ,unique: true|
@@ -11,7 +11,7 @@
 -has_many :messages
 -has_many :members
 
-## groupテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -20,7 +20,7 @@
 -has_many :messages
 -has_many :members
 
-## memberテーブル
+## membersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
@@ -30,14 +30,13 @@
 -belongs_to :user
 -belongs_to :group
 
-## messageテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|time|string|null: false|
 |user_id|integer|null: false ,foreign_key: true|
 |group_id|integer|null: false ,foreign_key: true|
 |image|string||
-|body|text|null: false|
+|body|text||
 
 ### Association
 -belongs_to :user
