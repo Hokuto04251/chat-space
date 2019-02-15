@@ -102,6 +102,7 @@ border-spacing: 0;
 }
 
 
+
 /*サイドバー下部*/
 
 .groups {
@@ -249,4 +250,5 @@ border-spacing: 0;
   border-style:solid; border-width:0.5pt;
   border-color: #D1D1D1;
   box-sizing:border-box;
+  margin-left: 15px;
 }
