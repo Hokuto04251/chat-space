@@ -1,41 +1,43 @@
-!!!
-%html
-  %body
-    .flash-box
-    .wrapper
-      .chat-side
-        .side-header
-          .side-header__box
-            %p.side-header__box__user-name 太郎
-            %ul.side-header__box__manu
-              %li.fas.fa-edit.side-header_icon1
-              %li.fas.fa-cog.side-header_icon2
-        .groups
-          .group
-            %p.group__group-name 雑談用
-            %p.group__latest-message おはようございます！
-      .chat-main
-        .main-header
-          .main-header__left-box
-            %h2.main-header__left-box__current-group 暇人トーク
-            %ul.main-header__left-box__member-list
-              %li Member : 太郎、花子、二郎
-          .main-header__edit-btn
-            Edit
-        .messages
-          .message1
-            .message__upper-info
-              %p.message__upper-info__talker 太郎
-              %p.message__upper-info__date 2019/02/05(Tue) 21:25:24
-            %p.message__text 今日もプログラミング頑張りました
-          .message2
-            .message__upper-info
-              %p.message__upper-info__talker 花子
-              %p.message__upper-info__date 2019/02/05(Tue) 21:27:26
-            %p.message__text 今日もお疲れ様でした！
-        .form
-          .new_message
-            .input-box
-              %p.input-box__text type a message
-              %i.far.fa-image.picture-icon.fa-lg
-            .submit-btn Send
+.flash-box
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name 太郎
+        %ul.side-header__box__menu
+          %li.side-header_icon1
+            %a{href: "http://htmltohaml.com/", title: ""}
+              = icon("fas", "edit")
+          %li.side-header_icon2
+            %a{href: "http://htmltohaml.com/",title: ""}
+              = icon("fas","cog")
+    .groups
+      .group
+        %p.group__group-name 雑談用
+        %p.group__latest-message おはようございます！
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group 暇人トーク
+        %ul.main-header__left-box__member-list
+          %li Member : 太郎、花子、二郎
+      .main-header__edit-btn
+        Edit
+    .messages
+      .message1
+        .message__upper-info
+          %p.message__upper-info__talker 太郎
+          %p.message__upper-info__date 2019/02/05(Tue) 21:25:24
+        %p.message__text 今日もプログラミング頑張りました
+      .message2
+        .message__upper-info
+          %p.message__upper-info__talker 花子
+          %p.message__upper-info__date 2019/02/05(Tue) 21:27:26
+        %p.message__text 今日もお疲れ様でした！
+    .form
+      .new_message
+        .input-box
+          %p.input-box__text type a message
+          %i.picture-icon
+            = icon("far","image")
+        .submit-btn Send
