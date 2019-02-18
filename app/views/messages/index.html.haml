@@ -24,20 +24,12 @@
       .main-header__edit-btn
         Edit
     .messages
-      .message1
-        .message__upper-info
-          %p.message__upper-info__talker 太郎
-          %p.message__upper-info__date 2019/02/05(Tue) 21:25:24
-        %p.message__text 今日もプログラミング頑張りました
-      .message2
-        .message__upper-info
-          %p.message__upper-info__talker 花子
-          %p.message__upper-info__date 2019/02/05(Tue) 21:27:26
-        %p.message__text 今日もお疲れ様でした！
+      = render @messages
     .form
-      .new_message
-        .input-box
-          %p.input-box__text type a message
-          %i.picture-icon
-            = icon("far","image")
-        .submit-btn Send
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa.icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
