@@ -61,3 +61,6 @@ gem 'erb2haml'
 gem 'font-awesome-sass', '~> 5.6.1'
 
 gem 'devise'
+
+gem 'carrierwave'
+gem 'mini_magick'

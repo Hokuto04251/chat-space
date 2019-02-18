@@ -6,6 +6,5 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
 
-  get '/users/:id/edit' => 'users#edit'
 end
 
