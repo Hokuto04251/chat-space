@@ -1,15 +1,21 @@
-@import "./reset";
-@import "./_variable.scss";
+@import "reset";
+@import "variable";
 
-@import "index.scss";
+// @import "index";
+// @import "./_main.scss";
+// @import "./form.scss";
+@import "modules/side_bar";
+@import "main";
 
-// fontawesome5系
-@import "font-awesome-sprockets";
 @import "font-awesome";
 
 @import "config/colors";
 @import "modules/flash";
-@import "modules/group";
 
 
+// グループ編集とユーザーアカウントのscss
+@import "group";
 @import "user";
+
+
+

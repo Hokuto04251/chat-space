@@ -1,0 +1,82 @@
+
+// .side-bar {
+//   height: 100%;
+// }
+
+a {
+  text-decoration: none;
+}
+
+.side-bar {
+  background-color: $side_blue_light;
+  height: 100vh;
+  float: left;
+  position: relative;
+  width: $width-side;
+}
+
+.header {
+  background-color: #253141;
+  height: $height-side;
+  width: $width-side;
+  padding-top: 28px;
+  &__name {
+    color: $white;
+    position: absolute;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    margin-top:6px;
+  }
+  &__lists {
+    padding-right: 20px;
+  }
+}
+.icon-2{
+  color: $white;
+  float: right;
+  font-size: 13px;
+  // padding-right: 4px;
+  margin-top:6px;
+  padding-top: 4px;
+}
+
+.icon-1 {
+  color: $white;
+  float: right;
+  font-size: 13px;
+  padding-right: 6px;
+  margin-top:6px;
+  padding-top: 4px;
+}
+
+
+.groups {
+  height: calc(100vh - 100px);
+  // height: 500px;
+  padding: 0 20px;
+  overflow: scroll;
+
+  // 下方向はスクロール可能
+  overflow: auto;
+  .group {
+    box-sizing: border-box;
+    padding: 20px 0 40px;
+    &__name {
+      color: $white;
+      // text-decoration: none;
+      font-size: 15px;
+      margin-top: 5px;
+    }
+    &__message {
+      color: $white;
+      // text-decoration: none;
+      font-size: 11px;
+      margin-top: 5px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+

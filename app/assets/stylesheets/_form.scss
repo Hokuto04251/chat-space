@@ -1,0 +1,51 @@
+.form {
+  background-color: #AAAAAA;
+  height: $height-form;
+  padding: 20px 40px;
+  width: calc(100% - 80px);
+  float: left;
+}
+
+.input-box {
+  &__text {
+    background-color: $white;
+    font-size: 16px;
+    color: $black;
+    height: $height-form;
+    float: left;
+    padding: 0 10px;
+    width: calc(100% - 135px);
+    line-height: 43px;
+    position: relative;
+    border-style: none;
+  }
+  &__image {
+  position:absolute;
+  margin-top: 9px;
+  right: 0;
+  margin-right: 165px;
+  }
+}
+
+.form_submit {
+  background-color: $light_blue;
+  color: $white;
+  float: right;
+  margin-left: 15px;
+  font-size: 16px;
+  width: 100px;
+  height: 43px;
+  text-align: center;
+  list-style: none;
+  line-height: $height-form;
+  position: absolute;
+  border-style: none;
+}
+
+.input-box__image__file {
+  display: none;
+}
+
+.far.fa-image {
+  font-size: 25px;
+}

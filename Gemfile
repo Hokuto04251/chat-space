@@ -56,11 +56,16 @@ gem 'haml-rails'
 gem 'erb2haml'
 
 
-# gem "font-awesome-rails"
+gem "font-awesome-rails"
 
-gem 'font-awesome-sass', '~> 5.6.1'
+# gem 'font-awesome-sass', '~> 5.6.1'
 
 gem 'devise'
 
 gem 'carrierwave'
 gem 'mini_magick'
+<<<<<<< Updated upstream
+=======
+
+gem 'pry-rails'
+>>>>>>> Stashed changes

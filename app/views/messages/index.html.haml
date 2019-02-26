@@ -1,30 +1,25 @@
-.flash-box
+
+
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name 太郎
-        %ul.side-header__box-menu
-          %li.side-header__box-menu__icon1
-            %a{href: "http://htmltohaml.com/", title: ""}
-              = icon("fas", "edit")
-          %li.side-header__box-menu__icon2
-            %a{href: "http://htmltohaml.com/",title: ""}
-              = icon("fas","cog")
-    .groups
-      .group
-        %p.group__name 雑談用
-        %p.group__latest-message おはようございます！
-  .chat-main
+  = render 'shared/side_bar'
+
+
+
+  .main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group 暇人トーク
-        %ul.main-header__left-box__member-list
-          %li Member : 太郎、花子、二郎
-      .main-header__edit-btn
-        Edit
+        .main-header__left-box__title
+          = @group.name
+        .main-header__left-box__member
+          Menbers:
+          - @group.group_users.each do |group_user|
+            = group_user.user.name
+      .main-header__edit
+        = link_to "Edit",edit_group_path(@group)
+
     .messages
       = render @messages
+<<<<<<< Updated upstream
     .form
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
@@ -33,3 +28,14 @@
           = fa.icon 'picture-o', class: 'icon'
           = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'form__submit'
+=======
+
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: '  type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+>>>>>>> Stashed changes
