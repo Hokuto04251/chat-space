@@ -4,14 +4,9 @@
       = message.user.name
     .upper-message__date
       = message.created_at.strftime("%Y/%m/%d %H:%M")
-<<<<<<< Updated upstream
+
   .lower-message
     - if message.content.present?
       = message.content
-=======
-  .lower-meesage
-    - if message.content.present?
-      %p.lower-message__content
-        = message.content
->>>>>>> Stashed changes
+
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
