@@ -21,7 +21,7 @@ $(function() {
   }
 
 
-  function appendCurrentUser(id,name){
+  function appendClickedtUser(id,name){
     var html = `
     <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
       <input name='group[user_ids][]' type='hidden' value='${id}'>
@@ -62,7 +62,7 @@ return html
       // クリックしたユーザーを取得
       var id = $(this).data('userId');
       var user_name = $(this).data('userName');
-      var insertHTML = appendCurrentUser(id,user_name);
+      var insertHTML = appendClickedUser(id,user_name);
 
       // チャットメンバーの方にユーザーを追加する
       $('#talk-member').append(insertHTML);
