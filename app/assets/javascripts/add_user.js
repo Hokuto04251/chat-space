@@ -20,6 +20,18 @@ $(function() {
     search_list.append(html);
   }
 
+
+  function appendClickedtUser(id,name){
+    var html = `
+    <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
+      <input name='group[user_ids][]' type='hidden' value='${id}'>
+      <p class='chat-group-user__name'>${name}</p>
+      <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+    </div>`
+return html
+  }
+
+
   $('#user-search-field').on('keyup',function(){
     var input = $('#user-search-field').val();
     $.ajax({
@@ -41,6 +53,32 @@ $(function() {
     })
     .fail(function(){
       alert('ユーザー検索に失敗しました');
-    })
+
+    });
   });
-});
+
+    // 追加ボタンを押した場合の処理
+    $(document).on('click', '.user-search-add', function(){
+      // クリックしたユーザーを取得
+      var id = $(this).data('userId');
+      var user_name = $(this).data('userName');
+      var insertHTML = appendClickedUser(id,user_name);
+
+      // チャットメンバーの方にユーザーを追加する
+      $('#talk-member').append(insertHTML);
+      // 検索結果の方からユーザーを消す
+      $(this).parent().remove();
+    });
+
+    // 削除ボタンを押した場合の処理
+    $(document).on('click','.user-search-remove', function(){
+      $(this).parent().remove();
+    });
+
+  });
+
+
+
+
+
+

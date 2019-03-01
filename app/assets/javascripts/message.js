@@ -9,8 +9,6 @@ $(function() {
                   <div class="upper-message">
                     <div class="upper-message__user-name">
 
-                      <p>${message.user_name}</p>
-
                     </div class="upper-message__date">
                     <div>
                       <p>${message.created_at}</p>
@@ -31,6 +29,7 @@ $(function() {
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
+
     $.ajax({
       url: location.href,
       type: 'POST',
@@ -40,14 +39,21 @@ $(function() {
       contentType: false
     })
     .done(function(message){
+
+
       var html = buildSendMessageHTML(message);
+
       $('.messages').append(html);
-      $('.form__message').val('');
-      $('.hidden').val('');
-      $( ".form__submit").prop( "disabled", false );
+        // 操作対象のフォーム要素を取得&リセット
+        var $form = $(this);
+        $("form")[0].reset();
+        // submiをクリックできるようにする
+      $(".form__submit").prop( "disabled", false );
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
+
+
       alert('メッセージを入力してください');
     })
   })
