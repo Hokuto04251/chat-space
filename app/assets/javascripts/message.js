@@ -61,7 +61,7 @@ $(function() {
 
   // ここから自動更新
   var num = $('.messages').children('.message').length;
-  setInterval(reload, 3000);
+  setInterval(reload, 5000);
   var group_id = $('.group_id').val();
   function reload(){
     $.ajax({
@@ -71,14 +71,12 @@ $(function() {
       dataType: 'json'
     })
     .done(function(messages){
-      console.log(messages)
       if(messages.length !== num ){
         $('.message').remove();
         var messageHistoryHTML = '';
         messages.forEach(function(message){
           messageHistoryHTML += buildSendMessageHTML(message);
         });
-        console.log(messageHistoryHTML)
         $('.messages').append(messageHistoryHTML);
         // // 下までスクロール
         // $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
