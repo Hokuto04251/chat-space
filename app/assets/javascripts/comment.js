@@ -40,16 +40,16 @@ $(function() {
     .done(function(message){
 
       var html = buildSendMessageHTML(message);
-      console.log(message);
+
       $('.messages').append(html);
       $('.form__message').val('');
       $('.hidden').val('');
       $(".form__submit").prop( "disabled", false );
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
-    .fail(function(XMLHttpRequest, textStatus, errorThrown){
-      console.log( textStatus);
-      // alert('メッセージを入力してください');
+    .fail(function(){
+
+      alert('メッセージを入力してください');
     })
   })
 });
