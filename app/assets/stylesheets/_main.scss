@@ -51,12 +51,15 @@ a {
         float: right;
         border: 1px solid $light_blue;
         // text-decoration: none;
-        color: $light_blue;
+        color: white;
         float: right;
         padding: 0 20px;
         margin-top: 28px;
         margin-right: 40px;
         line-height: 40px;
+      }
+      &__btn {
+        color: $light_blue;
       }
     }
 
