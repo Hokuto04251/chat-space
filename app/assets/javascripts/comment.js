@@ -44,8 +44,10 @@ $(function() {
       var html = buildSendMessageHTML(message);
 
       $('.messages').append(html);
-      $('.form__message').val('');
-      $('.hidden').val('');
+        // 操作対象のフォーム要素を取得&リセット
+        var $form = $(this);
+        $("form")[0].reset();
+        // submiをクリックできるようにする
       $(".form__submit").prop( "disabled", false );
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
