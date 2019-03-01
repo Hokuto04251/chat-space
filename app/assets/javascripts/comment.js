@@ -1,0 +1,55 @@
+$(function() {
+  function buildSendMessageHTML(message) {
+
+    var addImage = message.image ==  null ? "" : `<img src="${message.image}" class="lower-message__image">`;
+
+    var html = `
+                <div class="message">
+                  <div class="upper-message">
+                    <div class="upper-message__user-name">
+                      <p>${message.user_name}</p>
+                    </div class="upper-message__date">
+                    <div>
+                      <p>${message.created_at}</p>
+                    </div>
+                  </div>
+
+                  <div class="lower-message">
+                    <div>
+                      <p>${message.content}</p>
+                    </div>
+                    <div>
+                      <p>${addImage}</p>
+                    </div>
+                  </div>
+                </div>`
+    return html;
+  }
+  $('#new_message').on('submit', function(e){
+    e.preventDefault();
+    var formData = new FormData(this);
+    console.log(formData)
+    $.ajax({
+      url: location.href,
+      type: 'POST',
+      data: formData,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(message){
+
+      var html = buildSendMessageHTML(message);
+      console.log(message);
+      $('.messages').append(html);
+      $('.form__message').val('');
+      $('.hidden').val('');
+      $(".form__submit").prop( "disabled", false );
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+    })
+    .fail(function(XMLHttpRequest, textStatus, errorThrown){
+      console.log( textStatus);
+      // alert('メッセージを入力してください');
+    })
+  })
+});

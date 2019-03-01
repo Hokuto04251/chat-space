@@ -3,10 +3,6 @@
 //   height: 100%;
 // }
 
-a {
-  text-decoration: none;
-}
-
 .side-bar {
   background-color: $side_blue_light;
   height: 100vh;
@@ -53,8 +49,8 @@ a {
 
 
 .groups {
-  height: calc(100vh - 100px);
-  // height: 500px;
+  // height: calc(100vh - 100px);
+  height: 500px;
   padding: 0 20px;
   overflow: scroll;
 
@@ -79,4 +75,21 @@ a {
   }
 }
 
+// .groups {
+//   background-color: $side_blue_light;
+//   height: calc(100vh - 100px);
+//   padding: 0 20px;
+//   .group {
+//     box-sizing: border-box;
+//     padding: 20px 0 40px;
+//     &__name {
+//       color: $white;
+//       font-size: 15px;
+//     }
+//     &__message {
+//       color: $white;
+//       font-size: 11px;
 
+//     }
+//   }
+// }
