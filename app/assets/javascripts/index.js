@@ -20,6 +20,7 @@ $(function() {
     search_list.append(html);
   }
 
+
   function appendCurrentUser(id,name){
     var html = `
     <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
@@ -29,6 +30,7 @@ $(function() {
     </div>`
 return html
   }
+
 
   $('#user-search-field').on('keyup',function(){
     var input = $('#user-search-field').val();
@@ -51,6 +53,7 @@ return html
     })
     .fail(function(){
       alert('ユーザー検索に失敗しました');
+
     });
   });
 

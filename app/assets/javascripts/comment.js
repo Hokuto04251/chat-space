@@ -1,13 +1,14 @@
 $(function() {
   function buildSendMessageHTML(message) {
 
+
     var addImage = message.image ==  null ? "" : `<img src="${message.image}" class="lower-message__image">`;
 
     var html = `
                 <div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
-                      <p>${message.user_name}</p>
+
                     </div class="upper-message__date">
                     <div>
                       <p>${message.created_at}</p>
@@ -28,7 +29,7 @@ $(function() {
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    console.log(formData)
+
     $.ajax({
       url: location.href,
       type: 'POST',
@@ -39,6 +40,7 @@ $(function() {
     })
     .done(function(message){
 
+
       var html = buildSendMessageHTML(message);
 
       $('.messages').append(html);
@@ -48,6 +50,7 @@ $(function() {
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
+
 
       alert('メッセージを入力してください');
     })
