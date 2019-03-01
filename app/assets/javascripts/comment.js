@@ -1,13 +1,16 @@
 $(function() {
   function buildSendMessageHTML(message) {
 
+
     var addImage = message.image ==  null ? "" : `<img src="${message.image}" class="lower-message__image">`;
 
     var html = `
                 <div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
+
                       <p>${message.user_name}</p>
+
                     </div class="upper-message__date">
                     <div>
                       <p>${message.created_at}</p>
