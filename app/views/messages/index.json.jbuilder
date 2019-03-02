@@ -4,4 +4,5 @@ json.array! @messages.each do |message|
   json.image message.image.url
   json.id message.id
   json.user_name message.user.name
+  json.group_id message.group_id
 end

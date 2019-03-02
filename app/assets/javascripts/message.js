@@ -6,7 +6,7 @@ $(function() {
     var addImage = message.image ==  null ? "" : `<img src="${message.image}" class="lower-message__image">`;
 
     var html = `
-                <div class="message">
+                <div class="message" data-id="${message.id}" >
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                       <p>${message.user_name}</p>
@@ -61,26 +61,27 @@ $(function() {
 
   // ここから自動更新
   var num = $('.messages').children('.message').length;
+
   setInterval(reload, 5000);
-  var group_id = $('.group_id').val();
   function reload(){
     $.ajax({
       type: 'GET',
       url: location.href,
-      // data: {message: {id: messaege_id} }
       dataType: 'json'
     })
     .done(function(messages){
-      if(messages.length !== num ){
-        $('.message').remove();
-        var messageHistoryHTML = '';
-        messages.forEach(function(message){
-          messageHistoryHTML += buildSendMessageHTML(message);
-        });
-        $('.messages').append(messageHistoryHTML);
-        // // 下までスクロール
-        // $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+
+      var last_message_id = $('.message').filter(":last").data("id");
+      console.log(last_message_id);
+      var messageHistoryHTML = '';
+      messages.forEach(function(message){
+        if(message.id > last_message_id ){
+        messageHistoryHTML += buildSendMessageHTML(message);
       }
+      });
+      $('.messages').append(messageHistoryHTML);
+      // // 下までスクロール
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(messages){
 
