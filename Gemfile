@@ -74,3 +74,7 @@ gem 'mini_magick'
 
 gem 'pry-rails'
 
+# デプロイのため
+group :production do
+  gem 'unicorn'
+end

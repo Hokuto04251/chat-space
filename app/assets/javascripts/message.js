@@ -72,7 +72,7 @@ $(function() {
     .done(function(messages){
 
       var last_message_id = $('.message').filter(":last").data("id");
-      console.log(last_message_id);
+
       var messageHistoryHTML = '';
       messages.forEach(function(message){
         if(message.id > last_message_id ){
@@ -85,10 +85,8 @@ $(function() {
     })
     .fail(function(messages){
 
-
       alert('自動更新に失敗しました');
     })
   }
-
 
 });
