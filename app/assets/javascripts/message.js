@@ -70,7 +70,9 @@ $(function() {
       dataType: 'json'
     })
     .done(function(messages){
+
       var last_message_id = $('.message').filter(":last").data("id");
+
       var messageHistoryHTML = '';
       messages.forEach(function(message){
         if(message.id > last_message_id ){
@@ -82,7 +84,9 @@ $(function() {
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function(messages){
+
       alert('自動更新に失敗しました');
     })
   }
+
 });
