@@ -1,14 +1,15 @@
 $(function() {
+
   function buildSendMessageHTML(message) {
 
 
     var addImage = message.image ==  null ? "" : `<img src="${message.image}" class="lower-message__image">`;
 
     var html = `
-                <div class="message">
+                <div class="message" data-id="${message.id}" >
                   <div class="upper-message">
                     <div class="upper-message__user-name">
-
+                      <p>${message.user_name}</p>
                     </div class="upper-message__date">
                     <div>
                       <p>${message.created_at}</p>
@@ -57,4 +58,37 @@ $(function() {
       alert('メッセージを入力してください');
     })
   })
+
+  // ここから自動更新
+  var num = $('.messages').children('.message').length;
+
+  setInterval(reload, 5000);
+  function reload(){
+    $.ajax({
+      type: 'GET',
+      url: location.href,
+      dataType: 'json'
+    })
+    .done(function(messages){
+
+      var last_message_id = $('.message').filter(":last").data("id");
+      console.log(last_message_id);
+      var messageHistoryHTML = '';
+      messages.forEach(function(message){
+        if(message.id > last_message_id ){
+        messageHistoryHTML += buildSendMessageHTML(message);
+      }
+      });
+      $('.messages').append(messageHistoryHTML);
+      // // 下までスクロール
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+    })
+    .fail(function(messages){
+
+
+      alert('自動更新に失敗しました');
+    })
+  }
+
+
 });
