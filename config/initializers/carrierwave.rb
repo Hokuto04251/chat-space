@@ -13,5 +13,5 @@ CarrierWave.configure do |config|
   }
 
   config.fog_directory  = 'upload-test123456'
-  config.asset_host = 'https://s3-ap-northeast-1a.amazonaws.com/upload-test123456'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/upload-test123456'
 end
