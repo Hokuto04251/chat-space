@@ -21,7 +21,7 @@ $(function() {
   }
 
 
-  function appendClickedtUser(id,name){
+  function appendClickedUser(id,name){
     var html = `
     <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${id}'>
       <input name='group[user_ids][]' type='hidden' value='${id}'>
